@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LaunchMode</string>
+    <string name="activity_main_btn_standard">standard</string>
+    <string name="activity_main_btn_singletop">singleTop</string>
+    <string name="activity_main_btn_singletask">singleTask</string>
+    <string name="activity_main_btn_singleinstance">singleInstance</string>
+    <string name="activity_main_tv_title">Activity内存使用情况</string>
+</resources>
