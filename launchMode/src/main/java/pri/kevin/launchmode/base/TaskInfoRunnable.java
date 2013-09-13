@@ -1,6 +1,7 @@
 package pri.kevin.launchmode.base;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -15,6 +16,7 @@ import pri.kevin.launchmode.R;
  */
 public class TaskInfoRunnable implements Runnable {
 
+    private static final String TAG = TaskInfoRunnable.class.getSimpleName();
     private final BaseApplication app;
     private final BaseActivity baseActivity;
     private LinearLayout tasks;
@@ -31,33 +33,35 @@ public class TaskInfoRunnable implements Runnable {
     private void buildTask() {
         LayoutInflater inflater = LayoutInflater.from(baseActivity);
         LinearLayout linearLayout = (LinearLayout) inflater.inflate(R.layout.task_info_item, null);
-//        linearLayout.removeAllViews();
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setBackgroundColor(Color.BLUE);
         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(150, LinearLayout.LayoutParams.WRAP_CONTENT);
-        taskIdField = (TextView)linearLayout.findViewById(R.id.task_id_field);
-        taskView = (LinearLayout)linearLayout.findViewById(R.id.task_view);
+        taskIdField = (TextView) linearLayout.findViewById(R.id.task_id_field);
+        taskView = (LinearLayout) linearLayout.findViewById(R.id.task_view);
         showCurrentTaskId();
         showCurrentTaskActivites();
-//        return linearLayout;
         tasks.addView(linearLayout, param);
         tasks.invalidate();
     }
 
     private void showCurrentTaskActivites() {
         Stack<BaseActivity> task = app.getCurrentTask();
+        int taskId = app.getCurrentTaskId();
+        Log.e(TAG, "=====TASK ID:" + taskId + "=====");
+
         for (int location = task.size() - 1; location >= 0; location--) {
             BaseActivity activity = task.get(location);
             showActivityDetails(activity);
         }
+        Log.e(TAG, "==============================");
     }
 
     private void showActivityDetails(BaseActivity activity) {
-//        String activityName = activity.getClass().getSimpleName();
-//        Log.v(LOG_TAG, activityName);
         ImageView activityRepresentation = getActivityRepresentation(activity);
         taskView.addView(activityRepresentation);
         tasks.invalidate();
+        String name = activity.getClass().getSimpleName();
+        Log.e(TAG, "++++++++++" + name + "++++++++++++++");
     }
 
     private ImageView getActivityRepresentation(BaseActivity activity) {
