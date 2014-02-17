@@ -1,9 +1,6 @@
 <component name="libraryTable">
   <library name="ComAndroidSupportGridlayoutV71800.aar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/launchMode/build/exploded-bundles/ComAndroidSupportGridlayoutV71800.aar/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/launchMode/build/exploded-bundles/ComAndroidSupportGridlayoutV71800.aar/res" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
