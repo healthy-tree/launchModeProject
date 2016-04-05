@@ -1,3 +1,3 @@
-Android Test Project
-============
-  1. show apps task status.
+# Android 工具项目
+
+  1. 学习 Android Launch Mode .
